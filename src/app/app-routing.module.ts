@@ -5,14 +5,18 @@ import  {DockerNodeJsAngularAppUploadComponent} from './docker-nodejs-angular-ap
 
 
 const routes: Routes = [
-  { path: 'docker-nodejs-angular-app', component: DockerNodeJsAngularAppUploadComponent },
-  { path: '', redirectTo: 'docker-nodejs-angular-app', pathMatch: 'full' }
- 
+  { path: '', redirectTo: 're-platform-team-samples', pathMatch: 'full' },
+  { path: 're-platform-team-samples',
+    children: [
+      { path: '', redirectTo: 'docker-nodejs-angular-app', pathMatch: 'full' },
+      { path: 'docker-nodejs-angular-app', component: DockerNodeJsAngularAppUploadComponent}
+    ]
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  
+
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
